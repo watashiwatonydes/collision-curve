@@ -30,7 +30,7 @@ package physics
 				{
 					b1 	= bodies[ j ];
 					
-					conn = new JointConnection( JointConnection.DISTANCE_JOINT, b0, b1 );
+					conn = new JointConnection( JointConnection.ROPE_JOINT, b0, b1 );
 					
 					buffer.push( conn );
 				}

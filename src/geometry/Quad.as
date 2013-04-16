@@ -3,6 +3,7 @@ package geometry
 	import Box2D.Common.Math.b2Vec2;
 	import Box2D.Dynamics.b2Body;
 	
+	import flash.display.DisplayObjectContainer;
 	import flash.display.Shape;
 	import flash.display.Sprite;
 	import flash.events.Event;
@@ -114,7 +115,8 @@ package geometry
 				graphics.endFill();
 				
 				// Fade out slowly
-				_alpha 		+= (.1 - _alpha) * .05;
+				_alpha 		+= (.1 - _alpha) * .1;
+			
 				
 				// scaleX		+= (.95 - scaleX) * .05;
 				// scaleY 		+= (.95 - scaleX) * .05;

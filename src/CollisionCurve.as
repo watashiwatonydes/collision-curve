@@ -49,7 +49,8 @@ package
 		private var RIGHT:int		= 1;
 		private var _quads:Object	= new Vector.<Quad>();
 		
-		public static const COLORS:Array = [ 0xFFD702, 0xFFFFFF, 0x323232, 0x111111, 0x000000 ];
+		// public static const COLORS:Array = [ 0xFFD702, 0xFFFFFF, 0x323232, 0x111111, 0x000000 ];
+		public static const COLORS:Array = [ 0x1369AB, 0x7108A0, 0x00940E, 0xFFD702, 0xA02F09 ];
 		private var CAPTURE_TIMER:Timer;
 
 		private var DRAW_MATRIX:Matrix;
@@ -76,9 +77,9 @@ package
 			CREATION_TIMER.addEventListener(TimerEvent.TIMER, create);
 			CREATION_TIMER.start();
 			
-			CAPTURE_TIMER = new Timer( 400, 1 );
+			CAPTURE_TIMER = new Timer( 2000 );
 			CAPTURE_TIMER.addEventListener(TimerEvent.TIMER, takeSnapshot);
-			// CAPTURE_TIMER.start();
+			
 			
 			_particles 				= new Vector.<Ball>();
 
@@ -114,7 +115,9 @@ package
 						ns -= .01;
 					break;
 				case Keyboard.SPACE:
-					takeSnapshot( null );
+					
+					CAPTURE_TIMER.start();
+					
 					break;
 				case Keyboard.P:
 					
@@ -168,7 +171,6 @@ package
 				}
 			}
 
-			
 			renderPhysic();
 		}
 		
@@ -176,7 +178,7 @@ package
 		{
 			Config.WORLD.Step( Config.DT, 6, 6 );
 			Config.WORLD.ClearForces();
-			
+
 			var q:Quad;
 			for each ( q in _quads )
 			{
@@ -190,7 +192,7 @@ package
 			var speed:Number 	= 0.02;
 			var radius:Number 	= (stage.stageHeight / CREATION_TIMER.repeatCount) / 2;
 			
-			ball  		= new Ball( radius, speed, 0xff0000, stage.stageWidth * .5, 200 );
+			ball  		= new Ball( radius, speed, 0xff0000, stage.stageWidth * .5, 500 );
 			
 			_particlesContainer.addChild( ball );
 					
@@ -220,7 +222,7 @@ package
 			
 			var colorIndex:int	= Math.random() * COLORS.length;
 			
-			quad.color		= 0xffffff; // COLORS[ colorIndex ];
+			quad.color		= COLORS[ colorIndex ];
 			
 			var ln:int 		= _quads.length;
 			

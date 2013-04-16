@@ -56,7 +56,7 @@ package physics
 			
 			var fixtureDef:b2FixtureDef	= new b2FixtureDef();
 			fixtureDef.shape			= circularShape;
-			fixtureDef.friction			= 0;
+			fixtureDef.friction			= 0.5;
 			fixtureDef.density			= 1;
 			fixtureDef.restitution		= 1;
 			
